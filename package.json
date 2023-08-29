@@ -1,0 +1,20 @@
+{
+  "name": "random_password_generator",
+  "version": "1.0.0",
+  "description": "random_password_generator",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "keywords": [
+    "password_generator"
+  ],
+  "type": "module",
+  "author": "Kelvin Nien",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "express-handlebars": "^7.1.2"
+  }
+}
