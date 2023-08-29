@@ -3,13 +3,85 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Example App</title>
+  <link href="/stylesheets/bootstrap.min.css" rel="stylesheet">
+  <title>Random Password Generator</title>
 </head>
 
 <body>
-
-  {{{body}}}
-
+  <nav class="navbar navbar-expand-lg bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">Random Password Generator</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </nav>
+  <div class="container-fluid d-flex align-items-center flex-column">
+    <div class="container-fluid m-5 p-4 border border-dark" style="width: 60rem">
+      <div class="navbar navbar-expand-lg pb-3 border-bottom">Random Password Generator</div>
+      <form class="pb-3 pt-3" action="/random_password_generator/result" method="post">
+        <div class="mb-3 d-flex">
+          <div class="mb-3" style="width: 20rem">
+            <label for="passwordLengthInput" class="form-label">Password Length</label>
+          </div>
+          <div class="mb-3" style="width: 30rem">
+            <input type="number" class="form-control" name="passwordLength" id="passwordLengthInput" min="4" max="16"
+              aria-describedby="passwordLengthInput">
+            <div id="passwordLengthHelp" class="form-text">Length is available between 4 ~ 16</div>
+          </div>
+        </div>
+        <div class="mb-3 d-flex">
+          <div class="mb-3" style="width: 20rem">
+            <label for="lowercaseCheckbox" class="form-label">Include Lowercase Characters</label>
+          </div>
+          <div class="mb-3" style="width: 30rem">
+            <input type="checkbox" id="lowercaseCheckbox" name="lowercaseCheckbox" aria-describedby="lowercaseCheckbox">
+            <label for="lowercaseCheckbox" class="form-label">(e.g. abcdefg)</label>
+          </div>
+        </div>
+        <div class="mb-3 d-flex">
+          <div class="mb-3" style="width: 20rem">
+            <label for="uppercaseCheckbox" class="form-label">Include Uppercase Characters</label>
+          </div>
+          <div class="mb-3" style="width: 30rem">
+            <input type="checkbox" id="uppercaseCheckbox" name="uppercaseCheckbox" aria-describedby="uppercaseCheckbox">
+            <label for="uppercaseCheckbox" class="form-label">(e.g. ABCDEFG)</label>
+          </div>
+        </div>
+        <div class="mb-3 d-flex">
+          <div class="mb-3" style="width: 20rem">
+            <label for="numberCheckbox" class="form-label">Include Numbers</label>
+          </div>
+          <div class="mb-3" style="width: 30rem">
+            <input type="checkbox" id="numberCheckbox" name="numberCheckbox" aria-describedby="numberCheckbox">
+            <label for="numberCheckbox" class="form-label">(e.g. 12345)</label>
+          </div>
+        </div>
+        <div class="mb-3 d-flex">
+          <div class="mb-3" style="width: 20rem">
+            <label for="symbolCheckbox" class="form-label">Include Lowercase Symbols</label>
+          </div>
+          <div class="mb-3" style="width: 30rem">
+            <input type="checkbox" id="symbolCheckbox" name="symbolCheckbox" aria-describedby="symbolCheckbox">
+            <label for="symbolCheckbox" class="form-label">(e.g. @#$%)</label>
+          </div>
+        </div>
+        <div class="mb-3 d-flex">
+          <div class="mb-3" style="width: 20rem">
+            <label for="excludeCharactersInput" class="form-label">Exclude Characters</label>
+          </div>
+          <div class="mb-3" style="width: 30rem">
+            <input type="text" class="form-control" id="excludeCharactersInput" name="excludeCharactersCheckbox" aria-describedby="excludeCharactersInput">
+            <div id="excludeCharactersHelp" class="form-text">These characters will not appear in the password</div>
+          </div>
+        </div>
+        {{{body}}}
+        <button type="submit" class="btn btn-primary">Generate Password</button>
+      </form>
+    </div>
+  </div>
+  <script src="/javascripts/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
