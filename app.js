@@ -1,5 +1,6 @@
 import express, { urlencoded } from "express"
 import { engine } from "express-handlebars"
+import { charCodes, createCharSet, createPassword } from './public/javascripts/utility.js'
 const app = express()
 const port = 3000
 
@@ -14,35 +15,11 @@ app.get('/', (req, res) => {
 })
 
 app.get('/random_password_generator', (req, res) => {
-  res.render('home')
+  res.render('form')
 })
 
-const charCodes = new Map();
-charCodes.set('lowercaseCheckbox', 'abcdefghijklmnopqrstuvwxyz');
-charCodes.set('uppercaseCheckbox', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ');
-charCodes.set('numberCheckbox', '0123456789');
-charCodes.set('symbolCheckbox', '!#$%&*+-<=>?@^_~');
-
-function createPassword (totalChar, passwordLength) {
-  let str = ''
-  for (let i = 0; i < passwordLength; i++) {
-    str += totalChar[Math.floor(Math.random() * totalChar.length)].toString()
-  }
-  return str
-}
-
 app.post('/random_password_generator/result', (req, res) => {
-  const checkBox = req.body
-  const passwordLength = req.body.passwordLength
-  let totalChar = ''
-  charCodes.forEach((value, key) => {
-    if (Object.keys(checkBox).find((element) => element === key)) {
-      totalChar += value
-      console.log(totalChar)
-    }
-  })
-  const password = createPassword(totalChar, passwordLength)
-  res.render('result', { password })
+  res.render('result', { password: createPassword(createCharSet(req, charCodes), req) })
 })
 
 app.listen(port, () => {
