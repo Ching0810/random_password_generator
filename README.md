@@ -1,14 +1,14 @@
-## Random Password Generator
+# Random Password Generator
 "Random Password Generator" is a free tool to generate a random password according to variable options.
 
-# Features
+## Features
 - Generate a random password
 - Several options for password constraint
 
-# Environment requirements
+## Environment requirements
 - Node.js v18
 
-# Installation
+## Installation
 1. Clone the repository
 
 ```
