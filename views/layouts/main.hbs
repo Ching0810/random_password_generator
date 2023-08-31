@@ -39,7 +39,8 @@
             <label for="lowercaseCheckbox" class="form-label">Include Lowercase Characters</label>
           </div>
           <div class="mb-3" style="width: 30rem">
-            <input type="checkbox" id="lowercaseCheck" name="lowercaseCheckbox" value="lowercase" aria-describedby="lowercaseCheckbox">
+            {{!-- checkbox input: value attribute will sent to server side as name: value pair, if value do not assign, 'on' will be default value --}}
+            <input type="checkbox" id="lowercaseCheck" name="lowercaseCheckbox" aria-describedby="lowercaseCheckbox">
             <label for="lowercaseCheck" class="form-label">(e.g. abcdefg)</label>
           </div>
         </div>
