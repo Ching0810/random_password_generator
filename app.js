@@ -1,6 +1,6 @@
 import express, { urlencoded } from "express"
 import { engine } from "express-handlebars"
-import { charCodes, createCharSet, createPassword } from './public/javascripts/utility.js'
+import { charSets, createCharSet, createPassword, checkDisplayMode } from './public/javascripts/utility.js'
 const app = express()
 const port = 3000
 
@@ -15,11 +15,11 @@ app.get('/', (req, res) => {
 })
 
 app.get('/random_password_generator', (req, res) => {
-  res.render('form')
+  res.render('result', { displayMode: checkDisplayMode(req) })
 })
 
 app.post('/random_password_generator/result', (req, res) => {
-  res.render('result', { password: createPassword(createCharSet(req, charCodes), req) })
+  res.render('result', { password: createPassword(createCharSet(req, charSets), req), displayMode: checkDisplayMode(req) })
 })
 
 app.listen(port, () => {

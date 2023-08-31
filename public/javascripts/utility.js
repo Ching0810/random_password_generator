@@ -1,8 +1,19 @@
-export const charCodes = new Map();
-charCodes.set('lowercaseCheckbox', 'abcdefghijklmnopqrstuvwxyz');
-charCodes.set('uppercaseCheckbox', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ');
-charCodes.set('numberCheckbox', '0123456789');
-charCodes.set('symbolCheckbox', '!#$%&*+-<=>?@^_~');
+export const charSets = new Map();
+charSets.set('lowercaseCheckbox', 'abcdefghijklmnopqrstuvwxyz');
+charSets.set('uppercaseCheckbox', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ');
+charSets.set('numberCheckbox', '0123456789');
+charSets.set('symbolCheckbox', '!#$%&*+-<=>?@^_~');
+
+export function createCharSet (req, charSets) {
+  const reqBody = req.body
+  let totalChar = ''
+  charSets.forEach((value, key) => {
+    if (Object.keys(reqBody).find((element) => element === key)) {
+      totalChar += value
+    }
+  })
+  return totalChar
+}
 
 export function createPassword (totalChar, req) {
   const passwordLength = req.body.passwordLength
@@ -13,14 +24,13 @@ export function createPassword (totalChar, req) {
   return password
 }
 
-export function createCharSet (req, charCodes) {
-  const checkBox = req.body
-  
-  let totalChar = ''
-  charCodes.forEach((value, key) => {
-    if (Object.keys(checkBox).find((element) => element === key)) {
-      totalChar += value
-    }
-  })
-  return totalChar
+export function checkDisplayMode (req) {
+  const requestMethod = req.method
+  let displayMode = ''
+  if (requestMethod === 'GET') {
+    displayMode = 'd-none'
+  } else if (requestMethod === 'POST') {
+    displayMode = 'd-done'
+  }
+  return displayMode
 }
