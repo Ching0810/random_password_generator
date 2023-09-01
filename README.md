@@ -36,3 +36,5 @@ npm run start
 5. In your browser, open http://localhost:3000 to see the website.
 
 ## Screenshots
+<img src="public/images/Screenshot 2023-09-01 at 9.46.22 PM.png" alt="random password generator screenshots" width="300">
+<img src="public/images/Screenshot 2023-09-01 at 9.47.07 PM.png" alt="random password generator screenshots" width="300">

@@ -4,13 +4,14 @@
 <head>
   <meta charset="utf-8">
   <link href="/stylesheets/bootstrap.min.css" rel="stylesheet">
+  <link href="/stylesheets/style.css" rel="stylesheet">
   <title>Random Password Generator</title>
 </head>
 
 <body>
   <nav class="navbar navbar-expand-lg bg-light">
     <div class="container-fluid">
-      <a class="navbar-brand" href="/">Random Password Generator</a>
+      <a class="navbar-brand fs-3 fw-bold fst-italic" href="/">Random Password Generator</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -19,17 +20,17 @@
   </nav>
   <div class="container-fluid d-flex align-items-center flex-column bg-secondary">
     <div class="container-fluid m-5 p-4 border border-dark bg-white rounded-3" style="width: 60rem">
-      <div class="navbar navbar-expand-lg pb-3 border-bottom fs-3 fw-bolder">Random Password Generator</div>
-      <form class="pb-3 pt-3" id="submitForm" method="post" action="/random_password_generator/result">
+      <div class="navbar navbar-expand-lg pb-3 border-bottom fs-4 fw-bold">Random Password Generator</div>
+      <form class="pb-3 pt-3" id="submitForm" method="post" action="/random_password_generator/result" novalidate>
         {{!-- length number input --}}
         <div class="mb-3 d-flex">
           <div class="mb-3" style="width: 20rem">
             <label for="passwordLengthInput" class="form-label">Password Length</label>
           </div>
           <div class="mb-3" style="width: 30rem">
-            <input type="number" class="form-control" name="passwordLength" id="passwordLengthInput" value="{{options.passwordLength}}" min="4" max="16"
-              aria-describedby="passwordLengthInput" required>
-            <div id="passwordLengthHelp" class="form-text">Length is available between 4 ~ 16</div>
+            <input type="number" class="form-control" name="passwordLength" id="passwordLengthInput" placeholder="Length is available between 4 ~ 16" value="{{options.passwordLength}}" min="4" max="16" aria-describedby="passwordLengthInput" required>
+            <div class="valid-feedback">Good</div>
+            <div class="invalid-feedback">Please enter required number</div>
           </div>
         </div>
 
@@ -84,16 +85,21 @@
             <label for="excludeCharactersInput" class="form-label">Exclude Characters</label>
           </div>
           <div class="mb-3" style="width: 30rem">
-            <input type="text" class="form-control" id="excludeCharactersInput" name="excludeCharacters" value="{{options.excludeCharacters}}" aria-describedby="excludeCharactersInput">
-            <div id="excludeCharactersHelp" class="form-text">These characters will not appear in the password</div>
+            <input type="text" class="form-control" id="excludeCharactersInput" name="excludeCharacters" value="{{options.excludeCharacters}}" placeholder="These characters will not appear in the password" aria-describedby="excludeCharactersInput">
           </div>
         </div>
         {{{body}}}
-        <button type="submit" class="btn btn-primary">Generate Password</button>
+        <button type="submit" id="submitButton" class="btn btn-primary">Generate Password</button>
       </form>
     </div>
   </div>
+  <div class="card-footer">
+    <div class="text-end">
+      Idea is inspired by <span class="text-primary">Strong Random Password</span>
+    </div>
+  </div>
   <script src="/javascripts/bootstrap.bundle.min.js"></script>
+  <script src="/javascripts/index.js"></script>
 </body>
 
 </html>

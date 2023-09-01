@@ -29,6 +29,9 @@ export function createCharExclude (req, charSets) {
 
 export function createPassword (totalChar, req) {
   const passwordLength = req.body.passwordLength
+  if ( totalChar.length === 0 ) {
+    return 'There is no valid characters in your selection'
+  }
   let password = ''
   for (let i = 0; i < passwordLength; i++) {
     password += totalChar[Math.floor(Math.random() * totalChar.length)].toString()

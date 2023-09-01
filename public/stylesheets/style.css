@@ -1,0 +1,7 @@
+input[type="number"]::placeholder {
+  color: grey;
+}
+
+input[type="text"]::placeholder {
+  color: grey;
+}
