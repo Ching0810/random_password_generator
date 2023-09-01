@@ -19,7 +19,8 @@ app.get('/random_password_generator', (req, res) => {
 })
 
 app.post('/random_password_generator/result', (req, res) => {
-  res.render('result', { password: createPassword(createCharExclude(req, charSets), req), displayMode: checkDisplayMode(req) })
+  const options = req.body
+  res.render('result', { password: createPassword(createCharExclude(req, charSets), req), displayMode: checkDisplayMode(req), options })
 })
 
 app.listen(port, () => {

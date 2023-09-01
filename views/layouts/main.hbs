@@ -27,7 +27,7 @@
             <label for="passwordLengthInput" class="form-label">Password Length</label>
           </div>
           <div class="mb-3" style="width: 30rem">
-            <input type="number" class="form-control" name="passwordLength" id="passwordLengthInput" min="4" max="16"
+            <input type="number" class="form-control" name="passwordLength" id="passwordLengthInput" value="{{options.passwordLength}}" min="4" max="16"
               aria-describedby="passwordLengthInput" required>
             <div id="passwordLengthHelp" class="form-text">Length is available between 4 ~ 16</div>
           </div>
@@ -40,7 +40,7 @@
           </div>
           <div class="mb-3" style="width: 30rem">
             {{!-- checkbox input: value attribute will sent to server side as name: value pair, if value do not assign, 'on' will be default value --}}
-            <input type="checkbox" id="lowercaseCheck" name="lowercaseCheckbox" aria-describedby="lowercaseCheckbox">
+            <input type="checkbox" id="lowercaseCheck" name="lowercaseCheckbox" aria-describedby="lowercaseCheckbox" {{#if options.lowercaseCheckbox}}checked{{/if}}>
             <label for="lowercaseCheck" class="form-label">(e.g. abcdefg)</label>
           </div>
         </div>
@@ -51,7 +51,7 @@
             <label for="uppercaseCheckbox" class="form-label">Include Uppercase Characters</label>
           </div>
           <div class="mb-3" style="width: 30rem">
-            <input type="checkbox" id="uppercaseCheckbox" name="uppercaseCheckbox" aria-describedby="uppercaseCheckbox">
+            <input type="checkbox" id="uppercaseCheckbox" name="uppercaseCheckbox" aria-describedby="uppercaseCheckbox" {{#if options.uppercaseCheckbox}}checked{{/if}}>
             <label for="uppercaseCheckbox" class="form-label">(e.g. ABCDEFG)</label>
           </div>
         </div>
@@ -62,7 +62,7 @@
             <label for="numberCheckbox" class="form-label">Include Numbers</label>
           </div>
           <div class="mb-3" style="width: 30rem">
-            <input type="checkbox" id="numberCheckbox" name="numberCheckbox" aria-describedby="numberCheckbox">
+            <input type="checkbox" id="numberCheckbox" name="numberCheckbox" aria-describedby="numberCheckbox" {{#if options.numberCheckbox}}checked{{/if}}>
             <label for="numberCheckbox" class="form-label">(e.g. 12345)</label>
           </div>
         </div>
@@ -73,7 +73,7 @@
             <label for="symbolCheckbox" class="form-label">Include Symbols</label>
           </div>
           <div class="mb-3" style="width: 30rem">
-            <input type="checkbox" id="symbolCheckbox" name="symbolCheckbox" aria-describedby="symbolCheckbox">
+            <input type="checkbox" id="symbolCheckbox" name="symbolCheckbox" aria-describedby="symbolCheckbox" {{#if options.symbolCheckbox}}checked{{/if}}>
             <label for="symbolCheckbox" class="form-label">(e.g. @#$%)</label>
           </div>
         </div>
@@ -84,7 +84,7 @@
             <label for="excludeCharactersInput" class="form-label">Exclude Characters</label>
           </div>
           <div class="mb-3" style="width: 30rem">
-            <input type="text" class="form-control" id="excludeCharactersInput" name="excludeCharacters" aria-describedby="excludeCharactersInput">
+            <input type="text" class="form-control" id="excludeCharactersInput" name="excludeCharacters" value="{{options.excludeCharacters}}" aria-describedby="excludeCharactersInput">
             <div id="excludeCharactersHelp" class="form-text">These characters will not appear in the password</div>
           </div>
         </div>
