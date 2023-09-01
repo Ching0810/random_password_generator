@@ -77,7 +77,9 @@
             <label for="symbolCheckbox" class="form-label">(e.g. @#$%)</label>
           </div>
         </div>
-        {{!-- <div class="mb-3 d-flex">
+
+        {{!-- exclude characters input --}}
+        <div class="mb-3 d-flex">
           <div class="mb-3" style="width: 20rem">
             <label for="excludeCharactersInput" class="form-label">Exclude Characters</label>
           </div>
@@ -85,7 +87,7 @@
             <input type="text" class="form-control" id="excludeCharactersInput" name="excludeCharacters" aria-describedby="excludeCharactersInput">
             <div id="excludeCharactersHelp" class="form-text">These characters will not appear in the password</div>
           </div>
-        </div> --}}
+        </div>
         {{{body}}}
         <button type="submit" class="btn btn-primary">Generate Password</button>
       </form>

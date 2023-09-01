@@ -4,7 +4,7 @@ charSets.set('uppercaseCheckbox', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ');
 charSets.set('numberCheckbox', '0123456789');
 charSets.set('symbolCheckbox', '!#$%&*+-<=>?@^_~');
 
-export function createCharSet (req, charSets) {
+function createCharSet (req, charSets) {
   const reqBody = req.body
   let totalChar = ''
   charSets.forEach((value, key) => {
@@ -13,6 +13,18 @@ export function createCharSet (req, charSets) {
     }
   })
   return totalChar
+}
+
+export function createCharExclude (req, charSets) {
+  if (req.body.excludeCharacters !== 0) {
+    const excludeCharacters = Array.from(req.body.excludeCharacters)
+    let charExclude = Array.from(createCharSet(req, charSets)).filter(
+      char => !excludeCharacters.includes(char)
+      ).join('')
+    return charExclude
+  } else {
+    return createCharSet(req, charSets)
+  }
 }
 
 export function createPassword (totalChar, req) {
